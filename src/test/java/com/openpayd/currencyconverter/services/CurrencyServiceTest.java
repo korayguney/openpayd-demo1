@@ -4,7 +4,9 @@ import com.openpayd.currencyconverter.exceptions.CurrencyConverterException;
 import com.openpayd.currencyconverter.exceptions.ErrorMessageConstants;
 import com.openpayd.currencyconverter.exceptions.TransactionDateParseException;
 import com.openpayd.currencyconverter.models.ConversionCurrency;
+import com.openpayd.currencyconverter.models.ConversionCurrencyLogModel;
 import com.openpayd.currencyconverter.models.Currency;
+import com.openpayd.currencyconverter.repositories.ConversionCurrencyRepository;
 import com.openpayd.currencyconverter.repositories.CurrencyRepository;
 import com.openpayd.currencyconverter.utils.ClientRequestInfo;
 import org.junit.jupiter.api.Test;
@@ -29,6 +31,8 @@ class CurrencyServiceTest {
 
     @Mock
     CurrencyRepository mockCurrencyRepository;
+    @Mock
+    ConversionCurrencyRepository mockConversionCurrencyRepository;
     @Mock
     ClientRequestInfo mockClientRequestInfo;
     @InjectMocks
@@ -62,8 +66,10 @@ class CurrencyServiceTest {
         when(mockCurrencyRepository.findByName(eq("TRY"))).thenReturn(expected1);
         Optional<Currency> expected2 = Optional.of(new Currency("EUR", 2.0));
         when(mockCurrencyRepository.findByName(eq("EUR"))).thenReturn(expected2);
-        when(mockClientRequestInfo.getClientIpAdress()).thenReturn(anyString());
-
+        ConversionCurrencyLogModel model = new ConversionCurrencyLogModel();
+        model.setClientIpAdress("127.0.0.1");
+        when(mockClientRequestInfo.getClientIpAdress()).thenReturn(model.getClientIpAdress());
+        when(mockConversionCurrencyRepository.save(any())).thenReturn(model);
         ConversionCurrency conversionCurrency = new ConversionCurrency("TRY", "EUR", 100);
 
         // when

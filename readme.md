@@ -1,3 +1,5 @@
+![OpenPayd-Build](https://github.com/korayguney/openpayd-demo1/actions/workflows/maven.yml/badge.svg?branch=master)
+
 Demo Application for OpenPayd 
 -----------------------------
 This  application is prepared for the "**OpenPayd Company**" job task.  This application is a simple foreign exchange application which is one of the
