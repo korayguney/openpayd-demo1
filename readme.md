@@ -1,43 +1,45 @@
-Demo Application for OpenPayd
+Demo Application for OpenPayd 
 -----------------------------
-This foreign exchange application is prepared for the "**OpenPayd Company**" job task. 
+This  application is prepared for the "**OpenPayd Company**" job task.  This application is a simple foreign exchange application which is one of the
+most common services used in financial applications.
 
 How to run the project:
 -----------------------
 
-This project is using Redis to store locally the currencies convertion rates. So after installing Redis, you'll need to execute:
-
-* **redis-server (_redis-server.exe for windows_)**
-
-If you don't have Redis and your OS is windows, you can download Redis from the below link;
-
-* https://github.com/microsoftarchive/redis/releases
-
 On a separate terminal and since this is a maven project you just need to go to the root of the project and perform the command:
+```
+mvn clean install
+```
+or if you don't have installed maven on your OS
 
-* _**mvn clean install**_
+```
+mvnw clan install
+```
 
-or
-* **_mvnw clan install_** (if you don't have installed maven on your OS)
 
-
-This will run the tests and create the jar file.
+This will run the unit tests of the project and create the jar file.
 
 After having the jar file you can simply run:
 
-* **_java -jar target/currency-converter-0.0.1-SNAPSHOT.jar_**
+```
+java -jar target/currency-converter-0.0.1-SNAPSHOT.jar
+```
 
 Since this is a Spring Boot project, you can also run the project with below command;
-* **_mvn spring-boot:run_** 
+```
+mvn spring-boot:run
+```
 
-or
-* **_mvnw spring-boot:run_** (if you don't have installed maven on your OS)
+or if you don't have installed maven on your OS
+```
+mvnw spring-boot:run
+```
 
 You can reach the index page by typing;
 
-*  http://localhost:8082/
+*  http://localhost:8080/
 
-The project will run on port 8082 (configured into application.yml).
+The project will run on port 8080 (configured as default).
 
 Example screenshot;
 
@@ -47,12 +49,66 @@ Example screenshot;
 How to test the project:
 -----------------------
 
-You can test the project from browser or it is also possible to test project with Swagger. 
+You can test the project from browser or it is also possible to test project with Swagger API UI.
+According to OpenPayd task functional requirements;
 
-To access the Swagger UI, just go to;
-* http://localhost:8082/swagger-ui.html
+### To test Exchange Rate API ; 
+* from browser UI, select currencies from **'From:'** and **'To:'** dropdown boxes, write **'1'** to input section and 
+  click **ExchangeRate** button;
+  
+![webui](./src/main/resources/img/screen3.png)
+
+
+* from the Swagger API, to access UI, go to;  http://localhost:8080/swagger-ui.html
 
 Example screenshot;
 
 ![swaggerui](./src/main/resources/img/screen2.png)
+
+To generate request;
+1. Select **/convert-currencies** under **currency-converter-controller** and then **Try it out**
+  ![swaggerui](./src/main/resources/img/screen5.png)
+
+2. Prepare request body into JSON format (value must be '1') and press **Execute**;
+  ![swaggerui](./src/main/resources/img/screen6.png)
+
+3. To request a exchange rate from 'USD' to 'TRY', prepare a request body like;
+```
+{
+  "from": "USD",
+  "to": "TRY",
+  "value": 1
+}
+```
+
+4. Server response will be display;  
+  ![swaggerui](./src/main/resources/img/screen7.png)
+
+### To test Conversion API;
+
+* from browser UI, select currencies from **'From:'** and **'To:'** dropdown boxes, write **'1'** to input section and
+  click **ExchangeRate** button;
+
+![webui](./src/main/resources/img/screen4.png)
+
+* from the Swagger API, to access UI, go to;  http://localhost:8080/swagger-ui.html and follow the similar steps written below 
+  **['To test Exchange Rate API'](#to-test-exchange-rate-api-)** section.
+
+### Database login
+
+This project is using H2 database to store locally the url/deeplink conversion requests/responses. To access H2 console;
+*  http://localhost:8080/h2-console/
+
+After that, login screen will be displayed;
+
+![h2ui](./src/main/resources/img/screen8.png)
+
+To login, below credentials must be written to login screen and then click **Connect**;
+
+| Part  | Input |
+| ------------- | ------------- |
+| Driver Class  | org.h2.Driver |
+| JDBC URL  | jdbc:h2:mem:testdb  |
+| User Name | sa  |
+| Password  | password  |
 

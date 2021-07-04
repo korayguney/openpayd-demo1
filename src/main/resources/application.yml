@@ -2,8 +2,6 @@ fixer:
   io:
     url: http://data.fixer.io/api/latest
     apiKey: c7a19f0a114d849e9836decbf59ff213
-server:
-  port: 8082
 spring:
   datasource:
     url:  jdbc:h2:mem:testdb
