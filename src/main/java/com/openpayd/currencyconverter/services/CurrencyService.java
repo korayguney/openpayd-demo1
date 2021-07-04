@@ -69,7 +69,7 @@ public class CurrencyService {
         model.setCurrency_from(conversionCurrency.getFrom());
         model.setCurrency_value(conversionCurrency.getValue());
         model.setClientIpAdress(clientRequestInfo.getClientIpAdress());
-        model.setClientUrl(clientRequestInfo.getClientIpAdress()+"/"+clientRequestInfo.getClientUrl());
+        model.setClientUrl(clientRequestInfo.getClientIpAdress()+clientRequestInfo.getClientUrl());
         model.setClientSessionActivityId(clientRequestInfo.getSessionActivityId());
         model.setTransaction_date(LocalDate.now());
         if(conversionCurrency.getValue() == 1){

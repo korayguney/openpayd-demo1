@@ -94,6 +94,18 @@ To generate request;
 * from the Swagger API, to access UI, go to;  http://localhost:8080/swagger-ui.html and follow the similar steps written below 
   **['To test Exchange Rate API'](#to-test-exchange-rate-api-)** section.
 
+### To test Conversion List API;
+
+It is only available to test from Swagger API. 
+1. Go to;  http://localhost:8080/swagger-ui.html
+2. Select **/conversions** under **currency-converter-controller** and then **Try it out**
+3. If you would like to get values by pages, fill in the necessary sections. 
+4. All transactions could be queried by 'transaction date'. Write transaction date for querying conversions in **dd/MM/yyyy** 
+   format and click **execute**;
+   ![swaggerui](./src/main/resources/img/screen9.png)
+5. Server response will be display;
+   ![swaggerui](./src/main/resources/img/screen10.png)
+
 ### Database login
 
 This project is using H2 database to store locally the url/deeplink conversion requests/responses. To access H2 console;
