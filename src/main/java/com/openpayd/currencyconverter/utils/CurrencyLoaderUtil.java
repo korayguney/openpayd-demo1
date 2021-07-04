@@ -10,6 +10,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 
+/**
+ *  This component fetches and loads all currencies and their exchange rates in EUR
+ *  to database during initialize of the application, then updates every 1 hour.
+ */
 @Component
 public class CurrencyLoaderUtil {
 

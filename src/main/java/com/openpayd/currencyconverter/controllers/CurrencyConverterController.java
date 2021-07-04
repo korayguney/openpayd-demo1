@@ -54,7 +54,9 @@ public class CurrencyConverterController {
     /**
      * This method fetches list of conversions filtered by the transaction date
      *
-     * @return requested conversion lists in ResponseEntity<List<ConversionCurrencyLogModel>>  type
+     * @param  transactionDate Transaction date in dd/MM/YYYY format
+     * @param  pageable default size is 10
+     * @return requested conversion lists in ResponseEntity<List<ConversionCurrencyLogModel>> type
      */
     @GetMapping(value = "/conversions", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Page<List<ConversionCurrencyLogModel>>> getAllConversions(

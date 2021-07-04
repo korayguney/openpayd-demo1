@@ -8,7 +8,6 @@ import com.openpayd.currencyconverter.repositories.ConversionCurrencyRepository;
 import com.openpayd.currencyconverter.repositories.CurrencyRepository;
 import com.openpayd.currencyconverter.utils.ClientRequestInfo;
 import com.openpayd.currencyconverter.validators.CurrencyConverterValidatorUtil;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

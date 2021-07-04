@@ -15,7 +15,7 @@ public class CustomInterceptor extends HandlerInterceptorAdapter {
     ClientRequestInfo clientRequestInfo;
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         clientRequestInfo.setClientIpAdress(request.getRemoteAddr());
         clientRequestInfo.setSessionActivityId(request.getSession().getId());
         clientRequestInfo.setClientUrl(request.getRequestURI());

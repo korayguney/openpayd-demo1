@@ -1,6 +1,5 @@
 package com.openpayd.currencyconverter.repositories;
 
-
 import com.openpayd.currencyconverter.models.ConversionCurrencyLogModel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
