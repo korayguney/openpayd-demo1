@@ -1,4 +1,4 @@
-![OpenPayd-Build](https://github.com/korayguney/openpayd-demo1/actions/workflows/maven.yml/badge.svg?branch=master)
+![OpenPayd-CI](https://github.com/korayguney/openpayd-demo1/actions/workflows/maven.yml/badge.svg?branch=master)
 
 Demo Application for OpenPayd 
 -----------------------------
