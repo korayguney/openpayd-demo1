@@ -74,7 +74,7 @@ To generate request;
 2. Prepare request body into JSON format (value must be '1') and press **Execute**;
   ![swaggerui](./src/main/resources/img/screen6.png)
 
-3. To request a exchange rate from 'USD' to 'TRY', prepare a request body like;
+3. To request a exchange rate, e.g. from 'USD' to 'TRY', prepare a request body like;
 ```
 {
   "from": "USD",
@@ -110,7 +110,7 @@ It is only available to test from Swagger API.
 
 ### Database login
 
-This project is using H2 database to store locally the url/deeplink conversion requests/responses. To access H2 console;
+This project is using H2 database to store locally the exchange rates and currency conversion requests/responses. To access H2 console;
 *  http://localhost:8080/h2-console/
 
 After that, login screen will be displayed;
